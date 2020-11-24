@@ -16,3 +16,5 @@ npm i readline-sync
  To make it interesting a bonus question is being made which will be available if a certain player scores more than a certain score.
  This Quiz also consists of leaderboard which help you to see how you performed relatively.
 
+## Demo
+![](demo.gif)

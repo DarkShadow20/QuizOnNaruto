@@ -1,7 +1,7 @@
-var chalk=require('chalk');
-var readlinesync=require('readline-sync')
-var score=0;
-var leaderboard=[{
+const chalk=require('chalk');
+const readlinesync=require('readline-sync')
+let score=0;
+const leaderboard=[{
   Name:"Kunal",
   Score:"70"
 },
@@ -18,44 +18,44 @@ var leaderboard=[{
   Score:"0"
 }];
 
-var q1={
+const q1={
   ques:"What is Two Tails real Name ? ",
   ans : 3,
   options:["Kurama","Shukaku","Matatabi","Gyuki"]
 }
-var q2={
+const q2={
   ques:"Who was Naruto's father in his wedding ? ",
   ans : 1,
   options:["Izuka","Kakashi","Guy","Minato"]
 }
-var q3={
+const q3={
   ques:"What is most powerful Sasuke's ninjutsu? ",
   ans:2,
   options:["Kirin","Indra's Arrow","Chidori","Fireball"]
 }
 
-var q4={
+const q4={
   ques:"What was Sasuke's chakra nature? ",
   ans:4,
   options:["Fire","Wind","Earth","Lightning"]
 }
-var q5={
+const q5={
   ques:"Which ninja can't do ninjutsu? ",
   ans:4,
   options:["TenTen","Kakashi","Gaara","Might Guy"]
 }
 
-var bonusQuestion={
+const bonusQuestion={
   ques:"What is Sasuke's Team called ? ",
   ans:2,
   options:["Hebi","Taka","Toka","Akatsuki"]
 }
-var questions=[q1,q2,q3,q4,q5];
+const questions=[q1,q2,q3,q4,q5];
 function funBegin(questions,j,points)
 {
   console.log(chalk.bold.bgGrey.underline("Question "+ (j+1)))
   console.log(chalk.yellowBright(questions.ques));
-  var userAnswer=readlinesync.keyInSelect(questions.options);
+  let userAnswer=readlinesync.keyInSelect(questions.options);
   if((userAnswer+1)==questions.ans){
     score=score+points;
     console.log(chalk.green("Correct Answer"));
@@ -66,7 +66,7 @@ function funBegin(questions,j,points)
   }
 
 }
-var userName=readlinesync.question("What is you name? ");
+const userName=readlinesync.question("What is you name? ");
 console.log(chalk.bold.bgCyan("Welcome "+userName+ " to Naruto Quiz"));
 console.log();
 console.log(chalk.bold.bgRed.underline("Rules"));
@@ -77,7 +77,7 @@ console.log("4. Bonus Questions will be unlocked if you score is 50.");
 console.log("5. Bonus Question has +20 Points.");
 console.log(chalk.bold.bgBlue.underline("Let the Fun Begin "))
 console.log();
-for(var i=0;i<5;i++){
+for(let i=0;i<5;i++){
   funBegin(questions[i],i,10)
   }
 if (score==50){
@@ -86,9 +86,9 @@ if (score==50){
 }
 console.log(chalk.green("Your final Score: " + score));
 console.log(chalk.bold.green("ScoreBoard"))
-var counter;
-var temp;
-for(var i=0; i<leaderboard.length;i++){
+let counter=false;
+let temp;
+for(let i=0; i<leaderboard.length;i++){
   if(score<leaderboard[i].Score){  
     console.log(leaderboard[i].Name);
     console.log(leaderboard[i].Score);
@@ -104,7 +104,7 @@ for(var i=0; i<leaderboard.length;i++){
   }
 }
 
-for(var k=temp;k<leaderboard.length;k++){
+for(let k=temp;k<leaderboard.length;k++){
   if(counter){
   console.log(leaderboard[k].Name);
   console.log(leaderboard[k].Score);
